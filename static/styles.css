@@ -47,6 +47,30 @@ main {
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
+/* left page, book journal */
+.journal-left {
+    position: absolute;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-left: -15rem;
+    width: 41%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: background-color 0.5s ease;
+}
+
+/* right page, book journal */
+.journal-right {
+    position: absolute;
+    background: black;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-left: 22rem;
+    width: 41%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: background-color 0.5s ease;
+}
+
 /* mood options */
 .mood-options {
     display: flex;
@@ -92,4 +116,24 @@ footer {
 /* journal textarea */
 .journal-textarea {
     font-family: 'CustomFont';
+}
+
+.mood-ecstatic {
+    background-color: #ba6173;
+}
+
+.mood-happy {
+    background-color: #914f69;
+}
+
+.mood-neutral {
+    background-color: #88628d;
+}
+
+.mood-sad {
+    background-color: #706677;
+}
+
+.mood-depressed {
+    background-color: #525169;
 }
