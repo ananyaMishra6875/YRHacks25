@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 # temporarily store journal entries in memory --> add sql?
 entries = []
-dynamic_array = [10,2,8,0,4] #for graph testing
+
 
 @app.route('/')
 def home():
@@ -13,7 +13,19 @@ def home():
 
 @app.route('/data')
 def get_data():
-    return jsonify(dynamic_array)
+    mood_data = [10,2,8,0,4] #for graph testing
+    depressedCount = 0
+    for mood in mood_data:
+        if (mood <= 5):
+            depressedCount+=1
+    notDepressedCount = len(mood_data) - depressedCount
+    doughnut_data = [notDepressedCount, depressedCount]
+    doughnut_labels = ["Not Depressed", "Depressed"]
+    return jsonify({
+        "mood_data": mood_data,
+        "doughnut_data": doughnut_data,
+        "doughnut_labels": doughnut_labels,
+    })
 
 @app.route('/submit', methods=['POST'])
 def submit_entry():

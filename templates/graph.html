@@ -2,8 +2,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Dynamic Chart</h2>
-<canvas id="myChart" width="400" height="200"></canvas>
+<h2>Mood Charts</h2>
+<style>
+    .chart-container {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-top: 50px;
+      margin-right:200px;
+    }
+  
+    #lineChart {
+      width: 600px !important;
+      height: 400px !important;
+    }
+  
+    #doughnutChart {
+      width: 320px !important;
+      height: 320px !important;
+      margin-left: 20px;
+    }
+  </style>
+<div class="chart-container">
+    <canvas id="lineChart" width="600" height="400"></canvas>
+    <canvas id="doughnutChart" width="600" height="600"></canvas>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
@@ -15,15 +38,16 @@
         })
         .then(data => {
             console.log("Fetched data:", data); // See the data in the console
-            const ctx = document.getElementById('myChart').getContext('2d');
+            const ctx1 = document.getElementById('lineChart').getContext('2d');
+            const ctx2 = document.getElementById('doughnutChart').getContext('2d');
 
-            const myChart = new Chart(ctx, {
+            const lineChart = new Chart(ctx1, {
                 type: 'line',  // You can also use 'bar', 'pie', etc.
                 data: {
-                    labels: data.map((_, i) => ``),  // Generates x-axis labels
+                    labels: data.mood_data.map((_, i) => ''),  // Generates x-axis labels
                     datasets: [{
                         label: 'Mood',
-                        data: data,
+                        data: data.mood_data,
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 2
@@ -52,6 +76,38 @@
                     }
                 }
             });
+            const doughnutChart = new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: data.doughnut_labels,
+                datasets: [{
+                //label: 'BreakdownFruit ',
+                data: data.doughnut_data,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                legend: {
+                    position: 'top',
+                }
+                }
+            }
+            });
         });
+        
 </script>
+
+
 {% endblock %}
