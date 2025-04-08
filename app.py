@@ -1,14 +1,19 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 
 app = Flask(__name__)
 
 # temporarily store journal entries in memory --> add sql?
 entries = []
+dynamic_array = [10,2,8,0,4] #for graph testing
 
 @app.route('/')
 def home():
     # home page to submit journal entry
     return render_template('home.html')
+
+@app.route('/data')
+def get_data():
+    return jsonify(dynamic_array)
 
 @app.route('/submit', methods=['POST'])
 def submit_entry():
