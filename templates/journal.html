@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <section class="journal-left" >
+    <section class="journal-left {{ mood_class }}" >
         {% for entry in entries %}
         <div class="entry">
             <p><strong>mood:</strong> {{ entry.mood }}</p>

@@ -29,13 +29,23 @@ def submit_entry():
         'journal': journal
     })
 
+    color_map = {
+        'ecstatic': 'mood-ecstatic',
+        'happy': 'mood-happy',
+        'neutral': 'mood-neutral',
+        'sad': 'mood-sad',
+        'depressed': 'mood-depressed'
+    }
+
+    mood_class = color_map.get(mood, '')
+
     # redirect to journal page after saving entry
-    return redirect(url_for('journal'))
+    return render_template('journal.html', entries=entries, mood_class=mood_class)
 
 @app.route('/journal')
 def journal():
     # The journal page will display all the saved entries
-    return render_template('journal.html', entries=entries)
+    return render_template('journal.html', entries=entries, mood_class=None)
 
 @app.route('/entry')
 def entry():
