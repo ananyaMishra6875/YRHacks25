@@ -1,14 +1,19 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 
 app = Flask(__name__)
 
 # temporarily store journal entries in memory --> add sql?
 entries = []
+dynamic_array = [10,2,8,0,4] #for graph testing
 
 @app.route('/')
 def home():
     # home page to submit journal entry
     return render_template('home.html')
+
+@app.route('/data')
+def get_data():
+    return jsonify(dynamic_array)
 
 @app.route('/submit', methods=['POST'])
 def submit_entry():
@@ -24,13 +29,23 @@ def submit_entry():
         'journal': journal
     })
 
+    color_map = {
+        'ecstatic': 'mood-ecstatic',
+        'happy': 'mood-happy',
+        'neutral': 'mood-neutral',
+        'sad': 'mood-sad',
+        'depressed': 'mood-depressed'
+    }
+
+    mood_class = color_map.get(mood, '')
+
     # redirect to journal page after saving entry
-    return redirect(url_for('journal'))
+    return render_template('journal.html', entries=entries, mood_class=mood_class)
 
 @app.route('/journal')
 def journal():
     # The journal page will display all the saved entries
-    return render_template('journal.html', entries=entries)
+    return render_template('journal.html', entries=entries, mood_class=None)
 
 @app.route('/entry')
 def entry():

@@ -2,5 +2,56 @@
 {% extends "base.html" %}
 
 {% block content %}
-    
+<h2>Dynamic Chart</h2>
+<canvas id="myChart" width="400" height="200"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Fetch data from Flask
+    fetch('/data')
+        .then(response => {
+            console.log("Response status:", response.status);
+            return response.json();
+        })
+        .then(data => {
+            console.log("Fetched data:", data); // See the data in the console
+            const ctx = document.getElementById('myChart').getContext('2d');
+
+            const myChart = new Chart(ctx, {
+                type: 'line',  // You can also use 'bar', 'pie', etc.
+                data: {
+                    labels: data.map((_, i) => ``),  // Generates x-axis labels
+                    datasets: [{
+                        label: 'Mood',
+                        data: data,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            min:0,
+                            max:12,
+                            ticks:{
+                                callback:function(value){
+                                    const labels = {
+                                        0:"depressed",
+                                        3:"sad",
+                                        6:"neutral",
+                                        9:"happy",
+                                        12:"ecstatic",
+                                    };
+                                    return labels[value] || "";
+                                }
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+</script>
 {% endblock %}

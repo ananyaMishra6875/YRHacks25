@@ -2,5 +2,17 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <section class="journal-left {{ mood_class }}" >
+        {% for entry in entries %}
+        <div class="entry">
+            <p><strong>mood:</strong> {{ entry.mood }}</p>
+            <p><strong>tags:</strong> {{ entry.tags }}</p>
+            <p><strong>journal:</strong> {{ entry.journal }}</p>
+        </div>
+        {% endfor %}
+    </section> 
     
+    <section class="journal-right">
+
+    </section> 
 {% endblock %}
