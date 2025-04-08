@@ -42,5 +42,10 @@ def graph():
     # The graph page will allow users to view a progress graph analysis of their entries
     return render_template('graph.html')
 
+@app.route('/settings')
+def settings():
+    # The settings page will display the settings for the app
+    return render_template('settings.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
