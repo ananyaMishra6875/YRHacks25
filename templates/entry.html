@@ -23,5 +23,15 @@
             <button type="submit">Save Entry</button>
             <button>Share</button>
         </form>
+        <form method="POST" action="/submit" enctype="multipart/form-data">
+            <p style="font-size: 10px;"></p>
+            <label for="audio">Upload Audio Reflection (optional):</label>
+            <input type="file" name="audio" accept="audio/*">
+            <p style="font-size: 10px;"></p>
+            <label for="video">Upload Video Reflection (optional):</label>
+            <input type="file" name="video" accept="video/*">
+            <p style="font-size: 10px;"></p>
+            <button type="submit">Submit</button>
+          </form>
     </section>
 {% endblock %}

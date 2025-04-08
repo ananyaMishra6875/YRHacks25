@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
+import os
 
 app = Flask(__name__)
 
@@ -99,6 +100,21 @@ def settings():
         'comment': comment
     })
 
+@app.route('/submit', methods=['POST'])
+def submit_entry2():
+    audio_file = request.files.get('audio')
+    video_file = request.files.get('video')
+
+    if audio_file:
+        audio_path = os.path.join('static/uploads', audio_file.filename)
+        audio_file.save(audio_path)
+
+    if video_file:
+        video_path = os.path.join('static/uploads', video_file.filename)
+        video_file.save(video_path)
+
+    # process/save form data too
+    return "Entry submitted."
 
 if __name__ == '__main__':
     app.run(debug=True)
