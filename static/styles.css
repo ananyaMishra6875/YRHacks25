@@ -7,7 +7,7 @@
 /* body */
 body {
     font-family: 'CustomFont';
-    background: #f4f7fa;
+    background: #d6cfcb;
     color: #333;
     margin: 0;
     padding: 0;
@@ -15,7 +15,7 @@ body {
 
 /* header */
 header {
-    background: #84a8ff;
+    background: #565264;
     color: white;
     padding: 1rem 2rem;
     display: flex;
@@ -67,7 +67,7 @@ textarea {
 /* button */
 button {
     font-family: 'CustomFont';
-    background: #84a8ff;
+    background: #a6808c;
     color: white;
     border: none;
     padding: 0.7rem 1.5rem;

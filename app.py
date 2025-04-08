@@ -32,5 +32,15 @@ def journal():
     # The journal page will display all the saved entries
     return render_template('journal.html', entries=entries)
 
+@app.route('/entry')
+def entry():
+    # The entry page will allow users to write an entry
+    return render_template('entry.html')
+
+@app.route('/graph')
+def graph():
+    # The graph page will allow users to view a progress graph analysis of their entries
+    return render_template('graph.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
