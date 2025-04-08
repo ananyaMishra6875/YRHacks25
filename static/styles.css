@@ -1,0 +1,95 @@
+/* fonts */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('LeagueSpartan-VariableFont_wght.ttf');
+}
+
+/* body */
+body {
+    font-family: 'CustomFont';
+    background: #f4f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* header */
+header {
+    background: #84a8ff;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* nav */
+nav a {
+    color: white;
+    font-size: 22px;
+    margin-left: 1rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* main */
+main {
+    padding: 2rem;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* entry form */
+.entry-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* mood options */
+.mood-options {
+    display: flex;
+    gap: 1rem;
+    margin: 0.5rem 0 1rem;
+}
+
+/* input */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* button */
+button {
+    font-family: 'CustomFont';
+    background: #84a8ff;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* tag input */
+.tag-input {
+    font-family: 'CustomFont';
+}
+
+/* journal textarea */
+.journal-textarea {
+    font-family: 'CustomFont';
+}
