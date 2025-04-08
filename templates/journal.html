@@ -34,6 +34,18 @@
     }
 
     function formatEntry(entry) {
+        if (entry.mood == 12) {
+            entry.mood = "Ecstatic";
+        } else if (entry.mood == 9) {
+            entry.mood = "Happy";
+        } else if (entry.mood == 6) {
+            entry.mood = "Neutral";
+        } else if (entry.mood == 3) {
+            entry.mood = "Sad";
+        } else if (entry.mood == 0) {
+            entry.mood = "Depressed";
+        }   
+
         return `
             <p><strong>Mood:</strong> ${entry.mood}</p>
             <p><strong>Tags:</strong> ${entry.tags}</p>

@@ -5,7 +5,6 @@ app = Flask(__name__)
 # temporarily store journal entries in memory --> add sql?
 entries = []
 
-
 @app.route('/')
 def home():
     # home page to submit journal entry
@@ -13,7 +12,23 @@ def home():
 
 @app.route('/data')
 def get_data():
-    mood_data = [10,2,8,0,4] #for graph testing
+    mood_data = []
+    for i in range(0, len(entries)):
+        mood_data.append(int(entries[i]['mood']))
+    # when users submits the form, this route will handle the data
+    # mood = request.form['mood']  # get the selected mood
+    # if(mood == 'ecstatic'):
+    # mood_data.append(12)
+    # # elif(mood == 'happy'):
+    # mood_data.append(9)
+    # # elif(mood == 'neutral'):
+    # mood_data.append(6)
+    # # elif(mood == 'sad'):
+    # mood_data.append(3)
+    # # elif(mood == 'depressed'):
+    # mood_data.append(0)
+    # # print(mood_data)
+
     depressedCount = 0
     for mood in mood_data:
         if (mood <= 5):
