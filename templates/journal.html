@@ -2,17 +2,59 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <section class="journal-left {{ mood_class }}" >
-        {% for entry in entries %}
-        <div class="entry">
-            <p><strong>mood:</strong> {{ entry.mood }}</p>
-            <p><strong>tags:</strong> {{ entry.tags }}</p>
-            <p><strong>journal:</strong> {{ entry.journal }}</p>
-        </div>
-        {% endfor %}
-    </section> 
-    
-    <section class="journal-right">
+<section class="journal-book">
+    <div class="page left-page" id="left-page">
+    </div>
+    <div class="page right-page" id="right-page">
+    </div>
+</section>
 
-    </section> 
+<div class="page-controls">
+    <button onclick="prevPage()">← Prev</button>
+    <button onclick="nextPage()">Next →</button>
+</div>
+<script>
+    const journalEntries = JSON.parse('{{ entries|tojson|safe }}');
+    let currentPage = 0;
+
+    function renderPages() {
+        const left = document.getElementById("left-page");
+        const right = document.getElementById("right-page");
+
+        left.innerHTML = "";
+        right.innerHTML = "";
+
+        if (journalEntries[currentPage]) {
+            left.innerHTML = formatEntry(journalEntries[currentPage]);
+        }
+
+        if (journalEntries[currentPage + 1]) {
+            right.innerHTML = formatEntry(journalEntries[currentPage + 1]);
+        }
+    }
+
+    function formatEntry(entry) {
+        return `
+            <p><strong>Mood:</strong> ${entry.mood}</p>
+            <p><strong>Tags:</strong> ${entry.tags}</p>
+            <p><strong>Journal:</strong> ${entry.journal}</p>
+        `;
+    }
+
+    function nextPage() {
+        if (currentPage + 2 < journalEntries.length) {
+            currentPage += 2;
+            renderPages();
+        }
+    }
+
+    function prevPage() {
+        if (currentPage - 2 >= 0) {
+            currentPage -= 2;
+            renderPages();
+        }
+    }
+
+    renderPages();
+</script>
 {% endblock %}

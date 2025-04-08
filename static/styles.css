@@ -41,7 +41,7 @@ main {
 
 /* entry form */
 .entry-form {
-    background: white;
+    background: #ffffff;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -99,18 +99,7 @@ button {
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-}
-
-/* footer */
-footer {
-    display: absolute;
-    top: 10;
-    text-align: center;
-    padding: 0.5rem;
     font-size: 1rem;
-    color: #706677;
-    margin-top: 21rem;
-    background-color: #CCB7AE;
 }
 
 /* tag input */
@@ -149,6 +138,7 @@ footer {
     position: absolute;
     background: #A6808C;
     padding: 2rem;
+    margin-top: 2rem;
     border-radius: 12px;
     margin-left: -15rem;
     width: 41%;
@@ -164,7 +154,7 @@ footer {
     max-width: 600px; /* control overall grid width */
     margin: 2rem -13rem; /* center the grid */
     margin-left: 25rem;
-    margin-top: 3rem;
+    margin-top: 6rem;
     text-align: center;
 }
 .home-links a {
@@ -179,4 +169,40 @@ footer {
     font-size: 1.5rem;
     padding: 0 1rem;
     background-color: #706677;
+}
+
+.journal-book {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+}
+
+.page {
+    background-color: #fdf6f0;
+    border: 2px solid #c1a3a3;
+    width: 40%;
+    height: 400px;
+    padding: 1.5rem;
+    border-radius: 12px;
+    overflow-y: auto;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.page-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1.5rem;
+}
+
+.page-controls button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #5b5266;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }

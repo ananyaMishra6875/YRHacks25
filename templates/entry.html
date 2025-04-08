@@ -3,24 +3,24 @@
 
 {% block content %}
     <section class="entry-form">
-        <h2>sample question: how are you?</h2>
+        <h2>How are you feeling today?</h2>
         
         <form method="POST" action="/submit">
-            <label for="mood">select your mood:</label>
+            <label for="mood">Select your current mood:</label>
             <div class="mood-options">
-                <label><input type="radio" name="mood" value="ecstatic" required>ecstatic</label>
-                <label><input type="radio" name="mood" value="happy">happy</label>
-                <label><input type="radio" name="mood" value="neutral">neutral</label>
-                <label><input type="radio" name="mood" value="sad">sad</label>
-                <label><input type="radio" name="mood" value="depressed">depressed</label>
+                <label><input type="radio" name="mood" value="ecstatic" required>Ecstatic</label>
+                <label><input type="radio" name="mood" value="happy">Happy</label>
+                <label><input type="radio" name="mood" value="neutral">Neutral</label>
+                <label><input type="radio" name="mood" value="sad">Sad</label>
+                <label><input type="radio" name="mood" value="depressed">Depressed</label>
             </div>
 
-            <label for="tags">tags (optional):</label>
-            <input type="text" name="tags" class="tag-input" placeholder="school, sleep, stress..." >
-            <label for="journal">journal entry (optional):</label>
-            <textarea name="journal" class="journal-textarea" rows="4" maxlength="300" placeholder="write a short reflection here..."></textarea>
+            <label for="tags">Tags (optional):</label>
+            <input type="text" name="tags" class="tag-input" placeholder="School, sleep, stress..." >
+            <label for="journal">Journal Entry (optional):</label>
+            <textarea name="journal" class="journal-textarea" rows="4" maxlength="300" placeholder="Write a short reflection here..."></textarea>
 
-            <button type="submit">save entry</button>
+            <button type="submit">Save Entry</button>
         </form>
     </section>
 {% endblock %}
