@@ -10,6 +10,7 @@
       align-items: center;
       margin-top: 50px;
       margin-right:200px;
+      margin-left: -70px;
     }
   
     #lineChart {
@@ -62,11 +63,11 @@
                             ticks:{
                                 callback:function(value){
                                     const labels = {
-                                        0:"depressed",
-                                        3:"sad",
-                                        6:"neutral",
-                                        9:"happy",
-                                        12:"ecstatic",
+                                        0:"Depressed",
+                                        3:"Sad",
+                                        6:"Neutral",
+                                        9:"Happy",
+                                        12:"Ecstatic",
                                     };
                                     return labels[value] || "";
                                 }
