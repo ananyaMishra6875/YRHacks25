@@ -16,4 +16,68 @@
         <a href="/graph">Graph Analysis</a>
         <a href="/settings">Settings</a>
     </div>
+    <style>   
+        .gallery-container {
+            margin-top: 130px;
+            width: 300%;
+            overflow: hidden;
+            position: relative;
+        }
+    
+        .image-gallery {
+            display: flex;
+            animation: scroll 15s linear infinite;
+        }
+    
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+    
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    
+        /* Optional: Add navigation buttons */
+        .prev, .next {
+            position: sticky;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+    
+        .prev {
+            left: 50px;
+        }
+    
+        .next {
+            right: 10px;
+        }
+      </style>
+    </head>
+    <body>
+    
+      <div class="gallery-container">
+        <div class="image-gallery">
+          <img src="static/Journal 1.png" alt="Journal 1">
+          <img src="static/Journal 2.png" alt="Journal 2">
+          <img src="static/Journal 3.png" alt="Journal 3">
+        </div>
+        <!-- Optional: Navigation buttons -->
+        <!-- <button class="prev">Prev</button>
+        <button class="next">Next</button> -->
+      </div>
 {% endblock %}
