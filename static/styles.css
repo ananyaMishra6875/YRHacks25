@@ -103,10 +103,14 @@ button {
 
 /* footer */
 footer {
+    display: absolute;
+    top: 10;
     text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-    color: #888;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #706677;
+    margin-top: 21rem;
+    background-color: #CCB7AE;
 }
 
 /* tag input */
@@ -119,6 +123,7 @@ footer {
     font-family: 'CustomFont';
 }
 
+/* mood colors */
 .mood-ecstatic {
     background-color: #ba6173;
 }
@@ -137,4 +142,41 @@ footer {
 
 .mood-depressed {
     background-color: #525169;
+}
+
+/* home page */
+.home-page {
+    position: absolute;
+    background: #A6808C;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-left: -15rem;
+    width: 41%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    color: white;
+    line-height: 0.5;
+}
+
+.home-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    gap: 1.25rem; /* space between buttons */
+    max-width: 600px; /* control overall grid width */
+    margin: 2rem -13rem; /* center the grid */
+    margin-left: 25rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+.home-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px; /* consistent height */
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    background-color: #706677;
 }
