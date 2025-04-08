@@ -62,5 +62,16 @@ def settings():
     # The settings page will display the settings for the app
     return render_template('settings.html')
 
+    name = request.form['name']
+    email = request.form['email'] 
+    comment = request.form['comment'] 
+
+    entries.append({
+        'name': name,
+        'email': email,
+        'comment': comment
+    })
+
+
 if __name__ == '__main__':
     app.run(debug=True)

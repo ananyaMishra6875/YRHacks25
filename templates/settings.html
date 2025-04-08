@@ -2,5 +2,34 @@
 {% extends "base.html" %}
 
 {% block content %}
-    
+    <section class = "settings">
+        <h1>Settings</h1>
+        
+        <div method = "POST" style="position: absolute; top: 200px;">
+            <img src="static/profile.png" width="150px">
+
+            <div style="position: absolute; top: -18px; left: 170px;">
+            <h2>Profile</h2>
+            <label style="width: 200px">Username: username1</label>
+
+            <button style="position: absolute; top: 100px; left: 0px;">Change Password</button>
+
+        </div>
+
+        <form method="POST" action="/submit" style="position: absolute; top: 170px;width: 700px;">
+            <h2>Contact Us</h2>
+            <label for="name">Name:</label>
+            <input type="text" name="name" class="name-input" placeholder="First and Last Name">
+            <label for="email">Email:</label>
+            <input type="text" name="email" class="email-input" placeholder="e.g. abc@gmail.com">
+            <label for="comment">Message:</label>
+            <input type="text" name="comment" class="comment-input" placeholder="Please leave us with a message">
+
+        </form>
+
+        <button style="position: absolute; top: 430px; left: 0px;">Submit Response</button>     
+        <label style="position: absolute; top: 490px; left: 0px; width: 700px;">Or Contact Us at abc@gmail.com</label>
+
+    </section>              
+
 {% endblock %}
